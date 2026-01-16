@@ -5,6 +5,7 @@ import dev.onesnzeroes.designpatterns.factorymethod.model.tile.ForestTile;
 import dev.onesnzeroes.designpatterns.factorymethod.model.tile.RoadTile;
 import dev.onesnzeroes.designpatterns.factorymethod.model.tile.Tile;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class CityMap extends Map{
