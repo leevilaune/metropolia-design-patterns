@@ -9,13 +9,12 @@ class DegreeToYearsConverterTest {
     @Test
     public void degreeToYearsTest(){
         DegreeToYearsConverter degree = new DegreeToYearsConverter();
-        assertEquals(degree.degreeToYears("Bsc"),4);
-        assertEquals(degree.degreeToYears("Msc"),2);
-        assertEquals(degree.degreeToYears("PHd"),5);
+        assertEquals(4,degree.degreeToYears("Bsc"));
+        assertEquals(2,degree.degreeToYears("Msc"));
+        assertEquals(5,degree.degreeToYears("PHd"));
 
-        assertEquals(degree.degreeToYears("hs"),-1);
+        assertEquals(-1,degree.degreeToYears("hs"));
 
         assertThrows(NullPointerException.class, () -> degree.degreeToYears(null));
-
     }
 }
