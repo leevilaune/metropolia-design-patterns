@@ -9,6 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
         UIFactory factory = new AFactory();
+
         Button button = factory.createButton("AButton");
         button.display();
         button.setText("AButtonEdit");
@@ -25,5 +26,6 @@ public class Main {
         button.display();
         factory.createCheckBox(true).display();
         factory.createCheckBox(false).display();
+
     }
 }
