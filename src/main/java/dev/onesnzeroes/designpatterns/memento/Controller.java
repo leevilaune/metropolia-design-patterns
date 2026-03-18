@@ -7,11 +7,13 @@ public class Controller {
     private Model model;
     private Gui gui;
     private List<IMemento> history; // Memento history
+    private int mementoIndex;
 
     public Controller(Gui gui) {
         this.model = new Model();
         this.gui = gui;
         this.history = new ArrayList<>();
+        this.mementoIndex = 0;
     }
 
     public void setOption(int optionNumber, int choice) {
@@ -33,23 +35,43 @@ public class Controller {
     }
 
     public void undo() {
-        if (!history.isEmpty()) {
-            System.out.println("Memento found in history");
-            IMemento previousState = history.remove(history.size() - 1);
-            model.restoreState(previousState);
-            gui.updateGui();
-        }
+        if (mementoIndex <= 0) return;
+        mementoIndex--;
+        IMemento state = history.get(mementoIndex);
+        model.restoreState(state);
+        gui.updateGui();
     }
 
-    public void redo(){
-        if(!this.history.isEmpty()){
-            System.out.println("Memento found in history");
-            IMemento nextState;
-        }
+    public void redo() {
+        if (mementoIndex >= history.size()) return;
+        IMemento state = history.get(mementoIndex);
+        mementoIndex++;
+        model.restoreState(state);
+        gui.updateGui();
     }
 
     private void saveToHistory() {
         IMemento currentState = model.createMemento();
         history.add(currentState);
+        this.mementoIndex = this.history.size()-1;
+    }
+    public List<IMemento> getHistory() {
+        return history;
+    }
+
+    public int getCurrentStateIndex() {
+        return mementoIndex - 1;
+    }
+
+    public void revertToState(int index) {
+        if (index < 0 || index >= history.size()) return;
+
+        mementoIndex = index + 1;
+        IMemento state = history.get(index);
+        model.restoreState(state);
+        gui.updateGui();
+    }
+    public void updateGui(){
+        this.gui.updateGui();
     }
 }

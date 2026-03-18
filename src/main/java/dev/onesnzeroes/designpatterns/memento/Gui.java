@@ -1,9 +1,12 @@
 package dev.onesnzeroes.designpatterns.memento;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -18,6 +21,7 @@ public class Gui extends Application {
     private ColorBox colorBox2;
     private ColorBox colorBox3;
     private CheckBox checkBox;
+    private ListView<Object> listView;
 
     public void start(Stage stage) {
 
@@ -44,7 +48,7 @@ public class Gui extends Application {
         hBox.setMargin(colorBox3.getRectangle(), insets);
 
 
-        Label label = new Label("Press Ctrl-Z to undo the last change.");
+        Label label = new Label("Press Ctrl-Z to undo or Ctrl-Y to redo");
         label.setPadding(insets);
 
         // create a VBox that contains the HBox and the CheckBox
@@ -54,17 +58,36 @@ public class Gui extends Application {
             controller.setIsSelected(checkBox.isSelected());
         });
 
-        // Set the HBox to be the root of the Scene
-        Scene scene = new Scene(vBox);
-        scene.setOnKeyPressed(event -> {
-            if (event.isControlDown() && event.getCode() == KeyCode.Z) {
-                // Ctrl-Z: undo
-                System.out.println("Undo key combination pressed");
-                controller.undo();
+        listView = new ListView<>();
+        ObservableList<Object> items = FXCollections.observableArrayList();
+        for (int i = 0; i < controller.getHistory().size(); i++) {
+            items.add("State " + (i + 1));
+        }
+        listView.setItems(items);
+        listView.getSelectionModel().select(controller.getCurrentStateIndex());
+        listView.setOnMouseClicked(event -> {
+            int index = listView.getSelectionModel().getSelectedIndex();
+            if (index >= 0) {
+                controller.revertToState(index);
             }
         });
-
-
+        vBox.getChildren().add(listView);
+        Scene scene = new Scene(vBox);
+        scene.setOnKeyPressed(event -> {
+            try{
+                if (event.isMetaDown() && event.getCode() == KeyCode.Z) {
+                    // Ctrl-Z: undo
+                    System.out.println("Undo key combination pressed");
+                    controller.undo();
+                }else if (event.isMetaDown() && event.getCode() == KeyCode.Y) {
+                    System.out.println("Redo key combination pressed");
+                    this.controller.redo();
+                }
+            }catch (Exception e){
+                System.out.println("You suck, try using proper indexes");
+                System.out.println(e.getMessage());
+            }
+        });
         stage.setScene(scene);
         stage.setTitle("Memento Pattern Example");
         stage.show();
@@ -76,5 +99,10 @@ public class Gui extends Application {
         colorBox2.setColor(controller.getOption(2));
         colorBox3.setColor(controller.getOption(3));
         checkBox.setSelected(controller.getIsSelected());
+        ObservableList<Object> items = FXCollections.observableArrayList();
+        for (int i = 0; i < controller.getHistory().size(); i++) {
+            items.add("State " + (i + 1));
+        }
+        listView.setItems(items);
     }
 }
