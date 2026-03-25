@@ -98,4 +98,31 @@ class LibraryTest {
         assertTrue(allow);
         assertTrue(deny);
     }
+
+    @Test
+    void unprotectedDocumentIsNotProtected() {
+        IDocument doc = library.getDocument(
+                library.addUnprotectedDocument("Public")
+        );
+
+        assertFalse(doc.isProtected());
+    }
+
+    @Test
+    void differentProtectedDocumentsHaveDifferentAccess() {
+        User alice = new User("alice");
+        User bob = new User("bob");
+
+        int doc1 = library.addProtectedDocument("Secret1", alice);
+        int doc2 = library.addProtectedDocument("Secret2", bob);
+
+        IDocument d1 = library.getDocument(doc1);
+        IDocument d2 = library.getDocument(doc2);
+
+        assertEquals("Secret1", d1.getContent(alice));
+        assertEquals("Secret2", d2.getContent(bob));
+
+        assertTrue(d1.getContent(bob).contains("no access"));
+        assertTrue(d2.getContent(alice).contains("no access"));
+    }
 }
