@@ -6,8 +6,8 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>dev.onesnzeroes.proxy</groupId>
-    <artifactId>metropolia-designpatterns-proxy</artifactId>
+    <groupId>dev.onesnzeroes.visitor</groupId>
+    <artifactId>metropolia-designpatterns-visitor</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -71,7 +71,7 @@
                 </executions>
                 <configuration>
                     <excludes>
-                        <exclude>dev/onesnzeroes/designpatterns/proxy/Main*</exclude>
+                        <exclude>dev/onesnzeroes/designpatterns/visitor/Main*</exclude>
                     </excludes>
                 </configuration>
             </plugin>
