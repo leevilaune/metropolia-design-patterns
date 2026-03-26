@@ -5,6 +5,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/metropolia-designpatterns-proxy/pom.xml" />
+        <option value="$PROJECT_DIR$/metropolia-designpatters-visitor/pom.xml" />
       </list>
     </option>
   </component>
