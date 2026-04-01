@@ -32,12 +32,11 @@ public class ComputerBuilder {
         this.computer.setOperatingSystem(os);
         return this;
     }
-
     public Computer build() {
-        Computer result = this.computer;
-        if (result.getProcessor() == null) {
+        if (this.computer.getProcessor() == null) {
             throw new IllegalStateException("Processor required");
         }
+        Computer result = this.computer;
         this.computer = new Computer();
         return result;
     }

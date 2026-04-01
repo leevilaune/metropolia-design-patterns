@@ -19,7 +19,7 @@ class ComputerDirectorTest {
         ComputerDirector director = new ComputerDirector(new ComputerBuilder());
 
         Computer computer = director.constructGamingComputer();
-
+        System.out.println(computer);
         assertTrue(computer.getRamGb() >= 32);
     }
 

@@ -9,7 +9,7 @@ public class ComputerDirector {
     }
 
     public Computer constructGamingComputer() {
-        return builder
+        return this.builder
                 .addProcessor("Intel i9")
                 .addRam(32)
                 .addHardDrive("1TB SSD")
@@ -19,7 +19,7 @@ public class ComputerDirector {
     }
 
     public Computer constructOfficeComputer() {
-        return builder
+        return this.builder
                 .addProcessor("Intel i5")
                 .addRam(16)
                 .addHardDrive("512GB SSD")
