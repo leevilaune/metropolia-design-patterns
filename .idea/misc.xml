@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/metropolia-designpatterns-builder/pom.xml" />
         <option value="$PROJECT_DIR$/metropolia-designpatterns-adapter/pom.xml" />
         <option value="$PROJECT_DIR$/metropolia-designpatterns-prototype/pom.xml" />
+        <option value="$PROJECT_DIR$/metropolia-designpatterns-mediator/pom.xml" />
       </list>
     </option>
   </component>
