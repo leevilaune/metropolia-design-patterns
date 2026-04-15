@@ -1,4 +1,4 @@
-package dev.onesnzeroes.designpatterns.adapter;
+package dev.onesnzeroes.designpatterns.prototype;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

@@ -1,4 +1,4 @@
-package dev.onesnzeroes.designpatterns.adapter;
+package dev.onesnzeroes.designpatterns.prototype;
 
 import java.util.Calendar;
 

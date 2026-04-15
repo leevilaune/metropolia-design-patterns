@@ -1,4 +1,4 @@
-package dev.onesnzeroes.designpatterns.adapter;
+package dev.onesnzeroes.designpatterns.prototype;
 public class Main {
     public static void main(String[] args) {
         CalendarNewDateAdapter adapter = new CalendarNewDateAdapter();
