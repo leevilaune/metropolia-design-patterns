@@ -7,7 +7,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>dev.onesnzeroes.proxy</groupId>
-    <artifactId>metropolia-designpatterns-proxy</artifactId>
+    <artifactId>metropolia-designpatterns-abstract-factory</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>

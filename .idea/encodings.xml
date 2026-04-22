@@ -7,6 +7,8 @@
     <file url="file://$PROJECT_DIR$/metropolia-designpatterns-adapter/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/metropolia-designpatterns-builder/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/metropolia-designpatterns-builder/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/metropolia-designpatterns-facade/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/metropolia-designpatterns-facade/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/metropolia-designpatterns-mediator/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/metropolia-designpatterns-mediator/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/metropolia-designpatterns-prototype/src/main/java" charset="UTF-8" />
@@ -15,5 +17,7 @@
     <file url="file://$PROJECT_DIR$/metropolia-designpatterns-proxy/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/metropolia-designpatterns-visitor/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/metropolia-designpatterns-visitor/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/metropolia-designpatters-iterator/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/metropolia-designpatters-iterator/src/main/resources" charset="UTF-8" />
   </component>
 </project>

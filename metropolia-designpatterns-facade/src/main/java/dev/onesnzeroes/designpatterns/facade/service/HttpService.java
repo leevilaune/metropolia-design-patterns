@@ -33,14 +33,21 @@ public class HttpService {
         }
     }
 
-    public String getAttributeValueFromJson(String urlString, String attributeName)
-            throws IllegalArgumentException, IOException {
+    /**
+     *
+     * @param urlString url to fetch from
+     * @param attributeName takes json path from root, eg /root/l1/value
+     * @return
+     * @throws IllegalArgumentException
+     * @throws IOException
+     */
+    public String getAttributeValueFromJson(String urlString, String attributeName) throws IllegalArgumentException, IOException {
         String json = this.httpClient.get(urlString);
         JsonNode node = this.mapper.readTree(json);
-        JsonNode valueNode = node.get(attributeName);
-        if (valueNode == null || valueNode.isNull()) {
+        JsonNode valueNode = node.at(attributeName);
+        if (valueNode.isMissingNode() || valueNode.isNull()) {
             throw new IllegalArgumentException("Attribute not found: " + attributeName);
         }
-        return valueNode.textValue();
+        return valueNode.asText();
     }
 }
